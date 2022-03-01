@@ -1,0 +1,261 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+    <title>DESO</title>
+    <meta name="keyword" content="DESO, 대학생, 모임, 대학생 모임">
+    <meta name="description" content="대학생들만 모여 모여">
+    <meta name="copyright" content="DESO">
+    <meta name="author" content="DESO">
+    <meta property="og:title" content="DESO">
+    <meta property="og:site_name" content="DESO">
+    <meta property="og:description" content="대학생들만 모여 모여">
+    <meta property="og:image" content="/images/icon_logo.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+
+
+    <link rel="stylesheet" href="/css/app.min.css">
+    <link rel="stylesheet" href="/css/vendor/swiper-bundle.min.css">
+    <script src="/js/vendor/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<script>
+    function load() {
+        let Time = new Date();
+        let meetname = localStorage.getItem("meetname");
+        let meetMem = localStorage.getItem("meetMem");
+        let meetCate = localStorage.getItem("meetCate");
+        let charge = (localStorage.getItem("charge")==="true")?"유료":"무료";
+        let meetLoc = localStorage.getItem("meetLoc");
+        let meetLoc2 = localStorage.getItem("meetLoc2");
+        let meetConts = localStorage.getItem("meetConts");
+        let meetRules = localStorage.getItem("meetRules");
+        let meetUrl = localStorage.getItem("meetUrl");
+        // let img = localStorage.getItem("img");
+        let month=(Time.getMonth()+1)<10?"0"+(Time.getMonth()+1).toString():(Time.getMonth()+1).toString()
+        let date=(Time.getDate())<10?"0"+(Time.getDate()).toString():(Time.getDate()).toString()
+        let hours=(Time.getHours())<10?"0"+(Time.getHours()).toString():(Time.getHours()).toString()
+        let minutes=(Time.getMinutes())<10?"0"+(Time.getMinutes()).toString():(Time.getMinutes()).toString()
+        let t =month+"-"+date+"  "+hours+":"+minutes
+        // let img=[]
+        //  for(let i = 0;i<4;i++){
+        //   img.push(localStorage.getItem("img"+i))
+        // }
+        document.getElementById("report_a").href = "\"/report/page?mode=행사&amp;no=80&amp;title="+meetname+"\""
+        // document.getElementById("img1").src=img[0];
+        document.getElementsByClassName("cardL__info__category").item(0).innerText =meetCate
+        document.getElementsByClassName("cardL__info__title").item(0).innerText =meetname
+        document.getElementsByClassName("cardL__info__day").item(0).innerText =t
+        document.getElementsByClassName("cardL__info__location").item(0).innerText =meetLoc
+        document.getElementsByClassName("cardL__info__join").item(0).innerText ="0/"+meetMem+" "+charge
+        document.getElementsByClassName("details__item__desc").item(0).innerText =meetConts
+        document.getElementsByClassName("details__item__desc").item(1).innerText =meetRules
+        document.getElementsByClassName("text").item(0).innerText =meetLoc+meetLoc2
+        // document.getElementsByClassName("img").item(0).src = img
+        // console.log(document.getElementsByClassName("img").item(0).src)
+    }
+</script>
+<body onload="load()"> <!-- onkeydown="return keydowncheck();" oncontextmenu='return false'-->
+<script>
+
+    function keydowncheck() {
+        var result = true;
+        var keycode = event.keyCode;
+        if (123 == keycode) //F12 키코드
+        {
+            result = false;
+        }
+        return result;
+    }
+</script>
+<link rel="stylesheet" href="/css/app.min.css">
+<link rel="stylesheet" href="/css/vendor/swiper-bundle.min.css">
+<script src="/js/vendor/swiper-bundle.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7d0d7e9b25dde7e8b3361e0a303ccd3a&amp;libraries=services"></script>
+<div class="layer">
+    <div class="modal social" data-modal="social">
+        <h5 class="modal__title">공유하기</h5>
+        <div class="modal__cont">
+            <div class="sns" style="justify-content: center !important;">
+                <button onclick="facebook()" class="sns__item" style="margin: 0 !important;">
+                    <object data="/images/icon_sns_facebook.svg" type="image/svg+xml" style="pointer-events: none; z-index:-1;"></object>
+                    <span>페이스북</span>
+                </button>
+            </div>
+            <div class="copy">
+                <input class="copy__txt" type="text" id="copy_url" readonly="">
+                <button class="copy__btn" onclick="copyText(this);" type="button">복사</button>
+                <script>
+                    window.addEventListener('load',() => {
+                        var filter = "win16|win32|win64|mac";
+
+                        if(navigator.platform) {
+                            if (0 > filter.indexOf(navigator.platform.toLowerCase())) {
+                                document.getElementById("copy_url").value = "https://play.google.com/store/apps/details?id=com.idenit.desoadmin";
+                            } else {
+                                document.getElementById("copy_url").value = window.location.href;
+                            }
+                        }
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="app">
+    <main id="main" class="meet">
+        <section class="section meet meet-detail">
+            <div class="section__top fixed fixed">
+                <h2 class="section__top__title center">행사</h2>
+                <div class="section__top__menu menu">
+                    <div class="menu__group">
+                        <a href="javascript:void(0)" class="menu__group__prev"></a>
+                        <a href="javascript:void(0)" class="menu__group__more depthControll"><i class="dot"></i></a>
+                    </div>
+                    <ul class="menu__depth depthMenu">
+                        <li><a href="#" class="icon icon--share modalControll">공유 하기</a></li>
+                        <li><a href="javascript:void(0)" class="icon icon--tel">신고하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section__content btm-l">
+                <div class="cardL">
+                    <div class="wrap">
+                        <div class="cardL__slider swiper">
+                            <ul class="cardL__slider__wrap swiper-wrapper" style="height:85%">
+
+                                <li class="cardL__slider__slide swiper-slide" >
+                                   <img class="img">
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <ul class="cardL__info">
+                            <li class="cardL__info__category"></li>
+                            <li class="cardL__info__title"></li>
+                            <li class="cardL__info__day"></li>
+                            <li class="cardL__info__location"></li>
+                            <li class="cardL__info__join"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details">
+
+                    <hr class="divider divider--gray04 divider--gap">
+                    <div class="details__item">
+
+
+                        <div class="details__item__title">
+                            <h3>참석자</h3>
+                        </div>
+                        <div class="details__item__members">
+                            <div class="blind">
+                                <span class="inform">참여중인 회원만 볼 수 있습니다.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr class="divider divider--gray04 divider--gap">
+                    <div class="details__item event">
+                        <div class="details__item__title"><h3 class="light">행사 소개</h3></div>
+                        <p class="details__item__desc gap">
+                        </p>
+                    </div>
+                    <div class="details__item event">
+                        <div class="details__item__title"><h3 class="light">행사 규칙</h3></div>
+                        <p class="details__item__desc"></p>
+                    </div>
+                    <hr class="divider divider--gray04 divider--gap">
+                    <div class="details__item">
+                        <div class="details__item__title"><h3>위치</h3></div>
+                        <div class="details__item__location">
+                            <span class="text"></span>
+                            <div class="map map--block">
+                                <div id="map" style="width: 90%; height: 200px; margin:0 auto; border-radius: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="divider divider--gray04 divider--gap">
+                    <div class="details__item__replies replies">
+
+
+                        <div class="replies__top">
+                            <h3 class="replies__top__title">댓글</h3>
+                        </div>
+                        <div class="blind">
+                            <span class="inform">참여중인 회원만 볼 수 있습니다.</span>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+
+                <a href="javascript:void(0)" class="actions__submit">참여하기</a>
+
+            </div>
+        </section>
+    </main>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/kakaoShare.js"></script>
+<script src="/js/facebookShare.js"></script>
+<script>
+    function b_del() {
+        Swal.fire({
+            title: '마감처리하시면 게시판이 삭제됩니다.',
+            text: "마감하시겠습니까?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '승인',
+            cancelButtonText: '취소'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = "./del?no=80"
+            }
+        })
+    }
+
+
+    var imageSlider = new Swiper('.cardL__slider');
+
+    function copyText(btn) {
+        var textToCopy = btn.closest('.copy').querySelector('.copy__txt');
+        textToCopy.select();
+        document.execCommand('copy');
+        toast("success", "복사되었습니다.");
+    };
+
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    // 마우스 드래그로 지도 이동 가능여부를 설정합니다
+    map.setDraggable(false)
+
+
+    // 마커를 생성하고 지도에 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng()
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+package controller.admin.board;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLEncoder;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dto.admin.Admin;
+import service.admin.boardService;
+
+@WebServlet(name = "adminBoardDel", urlPatterns = { "/admin/board/del" })
+public class del extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public del() {
+        super();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
+	}
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter out = response.getWriter();		
+		HttpSession session = request.getSession();
+		
+		Admin admin = (Admin)session.getAttribute("admin");
+		
+		if(admin==null){		
+			out.println("<script>");
+			out.println("alert('관리자 전용 페이지 입니다.');");
+			out.println("location.href='../home'");
+			out.println("</script>");
+		}else{
+			boardService bs = new boardService();
+			Long no =Long.valueOf(request.getParameter("no"));
+			String mode = URLEncoder.encode(request.getParameter("mode")); 
+			
+			int process = bs.del(no);
+			
+			if(process > 0) {				
+				response.sendRedirect("./list?mode="+mode);
+			}
+
+		}
+	}
+
+}

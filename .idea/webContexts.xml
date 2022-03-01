@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/classes/artifacts/deso_war_exploded/admin/board/preview.html" value="file://$PROJECT_DIR$/classes/artifacts/deso_war_exploded/admin/board" />
+        <entry key="file://$PROJECT_DIR$/classes/artifacts/deso_war_exploded/admin/board/view.jsp" value="file://$PROJECT_DIR$/classes/artifacts/deso_war_exploded/admin/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/board/preview.html" value="file://$PROJECT_DIR$/src/main/webapp/admin/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/board/view.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin/board" />
+      </map>
+    </option>
+  </component>
+</project>
