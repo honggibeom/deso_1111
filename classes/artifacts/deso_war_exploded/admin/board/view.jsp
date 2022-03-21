@@ -35,13 +35,13 @@
                 <input type="hidden" name="mode" value="<%=mode%>">
                 <input type="hidden" name="action" value="<%=action%>">
                 <input type="hidden" name="no" value="<%=(b != null && b.getB_no() != null)?b.getB_no():0 %>">
-                <%if (action.equals("update") && b != null) { %>
+                    <%if (action.equals("update") && b != null) { %>
                 <div class="row w-100 g-3 align-items-center mb-4">
                     <div class="col-2"><label for="meetId" class="col-form-label">주최자 아이디</label></div>
                     <div class="col-auto"><input type="text" id="meetId" class="form-control" value="<%=b.getB_no()%>"
                                                  readonly></div>
                 </div>
-                <%} %>
+                    <%} %>
                 <div class="row g-3 mb-4">
                     <div class="col-2"><label for="meetName" class="col-form-label"><%=mode %>명</label></div>
                     <div class="col-6"><input type="text" name="title" id="meetName" class="form-control"
@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <hr>
-                <%if (action.equals("update")) { %>
+                    <%if (action.equals("update")) { %>
                 <div class="row g-3 mb-5">
                     <div class="col-2"><label class="form-label pt-2">참여자</label></div>
                     <div class="col-10">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <%if (mode.equals("모임")) { %>
+                    <%if (mode.equals("모임")) { %>
                 <div class="row g-3 mb-5">
                     <div class="col-2"><label class="form-labell pt-2">대기자</label></div>
                     <div class="col-10">
@@ -166,9 +166,9 @@
                         </div>
                     </div>
                 </div>
-                <%}%>
+                    <%}%>
                 <hr>
-                <%}%>
+                    <%}%>
 
                 <div class="row g-3 mb-4">
                     <div class="col-2"><label for="meetLoc" class="col-form-label">위치</label></div>
@@ -201,7 +201,7 @@
                                 <div class="d-flex flex-row justify-content-start">
                                     <div class="col-5">
                                         <input type="date" id="meetDate" name="date" class="form-control datepicker input-date"
-                                               value="<%=(b != null)?date.format(b.getB_time()):"" %>" data-input required>
+                                            value="<%=(b != null)?date.format(b.getB_time()):"" %>" data-input required>
                                     </div>
                                     <div class="col-5 d-flex flex-row">
                                         <input type="time" id="mMinute" name="Time" class="form-control timepicker input-time" data-input required>
@@ -213,7 +213,7 @@
                                 <div class="d-flex flex-row justify-content-start">
                                     <div class="col-5">
                                         <input type="date" id="meetDate" name="date2" class="form-control datepicker input-date"
-                                               value="<%=(b != null)?date2.format(b.getB_time()):"" %>" data-input required>
+                                            value="<%=(b != null)?date2.format(b.getB_time()):"" %>" data-input required>
                                     </div>
                                     <div class="col-5 d-flex flex-row">
                                         <input type="time" id="mMinute" name="Time2" class="form-control timepicker input-time" data-input required>
@@ -246,7 +246,7 @@
                                 <div class="d-flex flex-row justify-content-start">
                                     <div class="col-5">
                                         <input type="date" id="meetDate" name="date4" class="form-control datepicker input-date"
-                                               value="<%=(b != null)?date4.format(b.getB_time()):"" %>" data-input required>
+                                           value="<%=(b != null)?date4.format(b.getB_time()):"" %>" data-input required>
                                     </div>
                                     <div class="col-5 d-flex flex-row">
                                         <input type="time" id="mMinute1" name="Time4" class="form-control timepicker input-time" data-input required>
@@ -268,7 +268,7 @@
                     <div class="col-2"><label for="meetRules" class="col-form-label"><%=mode %> 규칙</label></div>
                     <div class="col-10">
                         <textarea class="form-control" name="rule" id="meetRules" rows="8"
-                                  required><%=(b != null) ? b.getB_rule() : "" %></textarea>
+                          required><%=(b != null) ? b.getB_rule() : "" %></textarea>
                     </div>
                 </div>
                 <div class="row g-3 mb-4">
@@ -354,7 +354,7 @@
                                 <input name="file" onchange="filePick(event,1)" class="d-block my-3" id="file01" type="file"
                                        style="visibility: hidden; height: 0px" accept="image/*">
                                 <input type="hidden" id="file1" name="img1"
-                                       value="<%=(b != null && b.getB_img1() != null)?b.getB_img1():""%>">
+                                        value="<%=(b != null && b.getB_img1() != null)?b.getB_img1():""%>">
                                 <button class="btn btn_del border-secondary btn-block img-del">이미지 삭제</button>
                             </div>
                         </div>
@@ -405,7 +405,7 @@
                     <div class="col-2"><label class="form-labell pt-2">댓글</label></div>
                     <div class="col-10">
                         <div class="accordion-button collapsed" data-bs-toggle="collapse" href="#comments" role="button"
-                             aria-expanded="false" aria-controls="comments">
+                            aria-expanded="false" aria-controls="comments">
                             <span>댓글 목록</span>
                             <span id="commentSize" class="col-auto badge bg-secondary rounded-pill mx-2"></span>
                         </div>

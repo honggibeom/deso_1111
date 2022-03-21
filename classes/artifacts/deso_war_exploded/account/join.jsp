@@ -95,38 +95,35 @@
                             <fieldset class="field">
                                 <label for="uPwd" class="hidden">비밀번호</label>
                                 <input type="password" name="uPwd" id="uPwd" class="bd pwd-new" placeholder="비밀번호" required>
-                                <em class="field__subs info">영문, 숫자 조합으로 8자 이상</em>
                                 <em class="field__subs warn hidden">비밀번호는 영문, 숫자 조합으로 8자 이상으로 입력해 주십시오.</em>
                             </fieldset>
                             <fieldset class="field">
                                 <label for="uPwdCf" class="hidden">비밀번호 확인</label>
                                 <input type="password" name="uPwdCf" id="uPwdCf" class="bd pwd-confirm" placeholder="비밀번호 확인" required>
+                                <em class="field__subs info">영문, 숫자 특수문자 조합으로 8자 이상</em>
                                 <em class="field__subs warn warn01 hidden">비밀번호가 일치하지 않습니다.</em>
                                 <em class="field__subs warn warn02 hidden">새 비밀번호를 먼저 입력해 주세요.</em>
                                 <input type="hidden" id="pwFl" value="n">
                             </fieldset>
                             <fieldset class="field">
-                                <label for="uNick" class="hidden">닉네임</label>
-                                <input type="text" name="uNick" id="uNick" onkeyup="nickname()" class="bd" placeholder="닉네임" required>
-                                <input type="hidden" id="nameFl" value="n">
-                            </fieldset>
-                            <fieldset class="field">
-                                <label for="ucol" class="hidden">대학교명, 학과 입력</label>
+                                <label for="ucol" class="hidden">대학교명 입력</label>
                                 <div class="input bd college">
-                                    <span class="input__item"><input type="text" name="ucol" id="ucol" class="input__block" placeholder="서울대학교" required></span>
-                                    <span class="input__item"><input type="text" name="study" class="input__block" onkeyup="col()" placeholder="국어국문학과" required></span>
+                                    <span class="input__item"><input type="text" name="ucol" id="ucol" class="input__block" placeholder="대학교명 입력" required></span>
                                 </div>
-                                <em class="field__subs">대학교 인증 후 계정이 활성화 되므로 정확한 대학교명과 학과를 입력해 주세요.</em>
                                 <input type="hidden" id="colFl" value="n">
                             </fieldset>
                             <fieldset class="field">
-                                <label for="uYear" class="hidden">생년월일</label>
+                                <label for="study" class="hidden">학과 입력</label>
                                 <div class="input bd college">
-                                    <span class="input__item"><input type="text" name="year" id="uYear" class="input__block" placeholder="YYYY" maxlength="4" required></span>
-                                    <span class="input__item"><input type="text" name="month" id="uMonth" class="input__block" placeholder="MM" maxlength="2"  required></span>
-                                    <span class="input__item"><input type="text" name="day" id="uDate" class="input__block" placeholder="DD" maxlength="2" required></span>
+                                    <span class="input__item"><input type="text" name="study" id="study" class="input__block" onkeyup="col()" placeholder="학과 입력" required></span>
                                 </div>
-                                <em class="field__subs warn birth hidden"></em>
+                                <input type="hidden" id="majorFl" value="n">
+                            </fieldset>
+                            <fieldset class="field">
+                                <label for="uNum" class="hidden">학번 입력</label>
+                                <input type="text" name="uNum" id="uNum" onkeyup="nickname()" class="bd" placeholder="학번 입력" required>
+                                <em class="field__subs">*대학교 인증 후 계정이 활성화 되므로 정확한 대학교명과 학과를 입력해 주세요.</em>
+                                <input type="hidden" id="numFl" value="n">
                             </fieldset>
                             <fieldset class="field is-stepPwd">
                                 <label for="uTel" class="hidden">인증번호</label>
