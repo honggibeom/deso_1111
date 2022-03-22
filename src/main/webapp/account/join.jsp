@@ -80,6 +80,7 @@
             </div>
             <div class="section__content">
                 <div class="section__content__top">
+                    <h1 style=" !important;"><img src="${pageContext.request.contextPath}/images/final_logo.png" alt="최종로고3"></h1>
                     <h1 class="logo"><img src="${pageContext.request.contextPath}/images/icon_logo.svg" alt="DESO"></h1>
                 </div>
                 <div class="account__form join">
@@ -88,7 +89,7 @@
                             <div class="auth">
                                 <label for="uId" class="hidden">아이디</label>
                                 <input type="text" name="uId" id="uId" class="bd auth__input" placeholder="아이디" maxlength="10" required>
-                                <button type="button" onclick="idCheck()" class="auth__btn btn--submit btn--auth">중복확인</button>
+                                <button type="button" onclick="idCheck()" class="auth__btn btn--submit btn--auth" style="background-color: #93C9E4 !important">중복확인</button>
                                 <input type="hidden" id="idFl" value="n">
                             </div>
                         </fieldset>
@@ -129,14 +130,14 @@
                             <label for="uTel" class="hidden">인증번호</label>
                             <div class="auth">
                                 <input type="tel" name="uTel" id="uTel" class="bd auth__input" placeholder="휴대폰 번호" required>
-                                <button type="button" onclick="phoneChk()" class="auth__btn btn--submit btn--auth">인증요청</button>
+                                <button type="button" onclick="phoneChk()" class="auth__btn btn--submit btn--auth" style="background-color: #93C9E4 !important">인증요청</button>
                             </div>
                         </fieldset>
                         <fieldset class="field is-stepPwd">
                             <label for="authNum" class="hidden">인증하기</label>
                             <div class="auth">
                                 <input type="text" name="authNum" id="authNum" class="bd auth__input" placeholder="인증번호 입력" required>
-                                <button type="button" onclick="phoneResult()" class="auth__btn btn--submit btn--auth">인증하기</button>
+                                <button type="button" onclick="phoneResult()" class="auth__btn btn--submit btn--auth" style="background-color: #93C9E4 !important">인증하기</button>
                                 <input type="hidden" id="phoneFl" value="n">
                             </div>
                         </fieldset>
@@ -147,7 +148,7 @@
                             <!-- <a href="javascript:void(0)" class="modalControll" data-modal="terms">위치기반서비스 이용약관</a>-->
                             에 동의하게 됩니다.
                         </p>
-                        <input type="button" class="btn--submit btn__full" onclick="memberJoin()" value="회원가입">
+                        <input type="button" class="btn--submit btn__full" onclick="memberJoin()" style="background-color: #93C9E4 !important" value="회원가입">
                     </form>
                 </div>
             </div>
