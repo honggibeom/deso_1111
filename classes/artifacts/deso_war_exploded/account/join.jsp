@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="section__content">
-                <div class="section__content__top" style="display: flex">
+                <div class="section__content__top">
                     <h1 style=" !important;"><img src="${pageContext.request.contextPath}/images/final_logo.png" alt="최종로고3"></h1>
                     <h1 class="logo"><img src="${pageContext.request.contextPath}/images/icon_logo.svg" alt="DESO"></h1>
                 </div>
